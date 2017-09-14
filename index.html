@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+        <title>Øyetrening</title>
+
+        <script>
+
+            var red;
+
+            function start() {
+                red = document.getElementById("red");
+            }
+
+            function move(d) {
+                var y = parseInt( red.getAttribute("cy") );
+                red.setAttribute("cy", y + d);
+            }
+
+        </script>
+
+        <style>
+            * { margin: 0; padding: 0 }
+            html, body, svg { width: 100%; height: 100%}
+            body { display: table }
+            div, svg { display: table-row; width: 100%; }
+        </style>
+    </head>
+
+    <body style="background-color: black" onload="start()">
+
+        <svg style="position: absolute; z-index: -1">
+            <circle          r="30" cx="350" cy="100" stroke="blue" stroke-width="8" fill="black"></circle>
+            <circle id="red" r="30" cx="500" cy="100" stroke="red"  stroke-width="8" fill="black"></circle>
+        </svg>
+
+        <div style="height: 50%; " onmouseup="move(-10)">Upper</div>
+        <div style="height: 50%; " onmouseup="move(10)">Lower</div>
+
+    </body>
+</html>
